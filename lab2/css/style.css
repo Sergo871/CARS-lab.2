@@ -1,0 +1,357 @@
+/* ============================
+   Lab 2 - CSS Styling
+   Automobile de Lux
+   ============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Exo+2:wght@300;400;600&display=swap');
+
+/* === VARIABILE CSS === */
+:root {
+  --bg-dark: #0a0a0f;
+  --bg-card: #111118;
+  --accent-gold: #c9a84c;
+  --accent-light: #e8d5a3;
+  --text-primary: #f0f0f0;
+  --text-secondary: #999;
+  --border-color: #2a2a35;
+  --transition: 0.3s ease;
+}
+
+/* === RESET & BAZA === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+header {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  border-bottom: 1px solid var(--accent-gold);
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* === NAVIGARE === */
+nav {
+  background: var(--bg-card);
+  padding: 12px 40px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 8px 22px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* === PSEUDO-CLASE LINK-URI === */
+nav ul li a:link {
+  color: var(--text-secondary);
+}
+
+nav ul li a:visited {
+  color: #7a7a8a;
+}
+
+nav ul li a:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  background: rgba(201, 168, 76, 0.08);
+  letter-spacing: 3px;
+}
+
+nav ul li a:active {
+  background: rgba(201, 168, 76, 0.2);
+  transform: scale(0.98);
+}
+
+nav ul li a.active {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+/* === CONTAINER PRINCIPAL === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* === TITLU SECTIUNE === */
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--accent-gold);
+}
+
+/* === HERO SECTION (index) === */
+.hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+
+.hero h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+/* === GRID MARCI === */
+.brands-grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.brand-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 30px 40px;
+  text-align: center;
+  width: 280px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+
+.brand-card:hover::before {
+  transform: scaleX(1);
+}
+
+.brand-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(201, 168, 76, 0.12);
+}
+
+.brand-card a {
+  text-decoration: none;
+}
+
+.brand-card img {
+  width: 140px;
+  height: 100px;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: var(--transition);
+}
+
+.brand-card:hover img {
+  filter: brightness(1.1);
+}
+
+.brand-card .brand-name {
+  display: block;
+  margin-top: 16px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.brand-card:hover .brand-name {
+  color: var(--accent-gold);
+}
+
+/* === INTRO BRAND === */
+.brand-intro {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-gold);
+  padding: 24px 30px;
+  margin-bottom: 40px;
+  border-radius: 0 4px 4px 0;
+}
+
+.brand-intro p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* === IMAGE MAP WRAPPER === */
+.map-wrapper {
+  margin-bottom: 40px;
+}
+
+.map-wrapper img {
+  display: block;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+.map-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* === GRID MODELE === */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.model-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.model-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(201, 168, 76, 0.1);
+}
+
+.model-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition);
+}
+
+.model-card:hover img {
+  transform: scale(1.03);
+}
+
+.model-info {
+  padding: 20px;
+}
+
+.model-info h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.model-info p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* === BACK LINK === */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 10px 24px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.back-link:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  background: rgba(201, 168, 76, 0.06);
+}
+
+/* === FOOTER === */
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  padding: 24px 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
